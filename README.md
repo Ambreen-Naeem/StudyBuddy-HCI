@@ -64,10 +64,9 @@ The application enables users to:
 # 📸 Project Screenshots
 
 ## ✏️ Low-Fidelity Wireframes
-
-| Login | Dashboard |
-|-------|-----------|
-| ![](Low%20Fidelity%20Wireframes/Login%20Low%20Fidelity.png) | ![](Low%20Fidelity%20Wireframes/Dashboard%20LF.png) |
+| Dashboard |
+|-----------|
+| ![](Low%20Fidelity%20Wireframes/Dashboard%20LF.png) |
 
 | Study Groups | Planner |
 |--------------|----------|
