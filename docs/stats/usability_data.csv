@@ -1,0 +1,57 @@
+# StudyBuddy usability study — raw data (used by analysis.py)
+# ---------------------------------------------------------------
+# Dataset 1: Task time (seconds) to "find and join a study group"
+#   Between-subjects: Group A = redesigned/fixed UI, Group B = old/buggy UI
+participant,group,ui,task_time_s,tech_comfort_1to7
+A01,A,new,42,6
+A02,A,new,38,5
+A03,A,new,51,3
+A04,A,new,35,7
+A05,A,new,47,4
+A06,A,new,40,6
+A07,A,new,33,7
+A08,A,new,45,4
+A09,A,new,39,5
+A10,A,new,44,5
+A11,A,new,36,6
+A12,A,new,41,5
+A13,A,new,48,3
+A14,A,new,37,6
+A15,A,new,43,4
+B01,B,old,58,
+B02,B,old,62,
+B03,B,old,49,
+B04,B,old,71,
+B05,B,old,55,
+B06,B,old,64,
+B07,B,old,52,
+B08,B,old,60,
+B09,B,old,67,
+B10,B,old,56,
+B11,B,old,70,
+B12,B,old,59,
+B13,B,old,63,
+B14,B,old,54,
+B15,B,old,66,
+
+# ---------------------------------------------------------------
+# Dataset 2: SUS scores (0-100), within-subjects (same 8 users, old then new build)
+user,sus_old,sus_new
+U1,55,78
+U2,60,82
+U3,48,75
+U4,62,85
+U5,58,80
+U6,50,72
+U7,65,88
+U8,52,79
+
+# ---------------------------------------------------------------
+# Dataset 3: "Generate weekly syllabus" task — success/fail by UI (counts)
+# ui,success,fail
+# new,14,1
+# old,8,7
+
+# ---------------------------------------------------------------
+# Dataset 4: Preferred theme (nominal, n=20)
+# Dark,11 | Light,6 | No preference,3

@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------------------
+   Theme tokens
+   ---------------------------------------------------------------------------
+   Semantic color variables in `R G B` channel form so they work with the
+   Tailwind `rgb(var(--xxx) / <alpha-value>)` setup. Light values live on
+   :root; dark values override on .dark (toggled on <html> by ThemeContext).
+   ------------------------------------------------------------------------- */
+:root {
+  --canvas: 248 250 252; /* slate-50 */
+  --surface: 255 255 255; /* white */
+  --surface-2: 248 250 252; /* slate-50 (raised/elevated) */
+  --content: 30 41 59; /* slate-800 */
+  --content-muted: 100 116 139; /* slate-500 */
+  --line: 226 232 240; /* slate-200 */
+
+  /* Soft radial accents painted on the page background. */
+  --accent-a: 37 99 235; /* primary */
+  --accent-b: 124 58 237; /* secondary */
+}
+
+.dark {
+  --canvas: 2 6 23; /* slate-950 */
+  --surface: 15 23 42; /* slate-900 */
+  --surface-2: 30 41 59; /* slate-800 (raised/elevated) */
+  --content: 241 245 249; /* slate-100 */
+  --content-muted: 148 163 184; /* slate-400 */
+  --line: 51 65 85; /* slate-700 */
+
+  --accent-a: 59 130 246; /* primary-500 */
+  --accent-b: 139 92 246; /* secondary-500 */
+}
+
+/* ---------------------------------------------------------------------------
+   Base styles + accessibility helpers
+   ------------------------------------------------------------------------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-canvas text-content font-sans antialiased;
+    /* Subtle radial accents that read well in both themes. They sit behind
+       content at low opacity so text contrast stays WCAG AA. */
+    background-image:
+      radial-gradient(60rem 60rem at 12% -10%, rgb(var(--accent-a) / 0.08), transparent 60%),
+      radial-gradient(55rem 55rem at 100% 0%, rgb(var(--accent-b) / 0.08), transparent 55%);
+    background-attachment: fixed;
+    /* Smooth fade when toggling theme. */
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Theme-transition smoothing for surfaces/borders without animating layout. */
+  body,
+  body * {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+  }
+
+  /* Strong, consistent visible focus indicator for keyboard users.
+     We only show it for keyboard focus (:focus-visible) to avoid noisy
+     outlines on mouse clicks, but it is always present for tab navigation. */
+  :focus-visible {
+    @apply outline-none ring-2 ring-offset-2 ring-primary;
+    ring-offset-color: rgb(var(--canvas));
+  }
+
+  /* Respect users who prefer reduced motion. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    body,
+    body * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Visually hidden but available to screen readers. */
+  .sr-only-focusable:focus {
+    @apply not-sr-only fixed left-4 top-4 z-50 rounded-lg bg-primary px-4 py-2 text-white;
+  }
+
+  /* Glassy elevated card surface — translucent + backdrop blur. Falls back to
+     the solid `surface` color where backdrop-filter is unsupported. */
+  .glass-surface {
+    background-color: rgb(var(--surface) / 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
