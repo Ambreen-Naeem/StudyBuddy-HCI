@@ -4,139 +4,342 @@
 ![Vite](https://img.shields.io/badge/Vite-Build-646CFF?logo=vite)
 ![Flask](https://img.shields.io/badge/Flask-Backend-000000?logo=flask)
 ![SQLite](https://img.shields.io/badge/SQLite-Database-003B57?logo=sqlite)
-![HCI](https://img.shields.io/badge/HCI-Project-success)
-![License](https://img.shields.io/badge/License-Academic-blue)
 
+A **full-stack Human-Computer Interaction (HCI)** semester project that helps university students **find study partners, create study groups, organize syllabi, track academic progress, and manage study tasks** through an intuitive, user-centered web application.
 
-A full-stack **Human-Computer Interaction (HCI)** semester project: a web application that helps university students find study partners, create and manage study groups, break syllabi into weekly topics, track academic progress, and plan their study tasks — designed around Nielsen's heuristics, Shneiderman's golden rules, accessibility (WCAG AA), and user-centered UX principles.
+Designed using **Nielsen's 10 Usability Heuristics**, **Shneiderman's 8 Golden Rules**, **WCAG AA Accessibility Guidelines**, and modern **User-Centered Design (UCD)** principles.
+
+---
 
 > **Stack:** React + Vite + Tailwind CSS + React Router (frontend) · Python Flask + SQLAlchemy + JWT (backend) · SQLite (database)
 
 ---
 
-## ✨ Features
+# 📑 Table of Contents
 
-| # | Feature | Highlights |
-|---|---------|-----------|
-| 1 | **Accounts & Profile** | Sign up / login / logout, profile with university, semester, subjects, study preferences, availability schedule, learning style |
-| 2 | **Smart Group Matching** | Find groups by subject / semester / skill level; recommended groups; join requests, accept/reject, leave |
-| 3 | **Study Groups** | Members, discussion board (with replies), group progress tracker, admin controls (create/delete, add/remove members) |
-| 4 | **Syllabus Breakdown** | Add a subject, enter topics → auto-laid-out as Week 1 / Topic A, Week 2 / Topic B … |
-| 5 | **Progress Tracking** | Mark topics complete, percentage + progress bars, weekly targets, remaining topics, **study streak** |
-| 6 | **Study Planner** | Tasks & deadlines, weekly/monthly views, reminders, overdue badges |
-| 7 | **Dashboard** | Upcoming tasks, group activity, study hours, progress stats, recommended groups |
-| 8 | **Notifications** | Group invites, task deadlines, progress reminders, new join requests; mark read |
+- Overview
+- Features
+- Project Screenshots
+- Repository Structure
+- Tech Stack
+- Quick Start
+- HCI Principles
+- Database
+- Deliverables
+- Future Improvements
 
 ---
 
-## 📁 Repository Structure
+# 🚀 Overview
+
+StudyBuddy addresses the challenge students face in finding compatible study partners and effectively managing collaborative learning.
+
+The application enables users to:
+
+- Create and manage study groups
+- Find study partners based on subjects and preferences
+- Organize course syllabi into weekly study plans
+- Track learning progress
+- Manage study tasks and deadlines
+- Receive notifications and reminders
+- Participate in discussion forums
+
+---
+
+# ✨ Features
+
+| Feature | Highlights |
+|----------|------------|
+| 👤 Accounts & Profile | Sign up, Login, JWT Authentication, Profile Management |
+| 🤝 Smart Group Matching | Find groups by subject, semester, skill level |
+| 👥 Study Groups | Group management, join requests, discussions |
+| 📚 Syllabus Breakdown | Automatically organize topics into weekly study plans |
+| 📈 Progress Tracking | Progress bars, study streaks, weekly goals |
+| 📅 Study Planner | Tasks, deadlines, reminders, calendar planning |
+| 📊 Dashboard | Study statistics, recommended groups, upcoming tasks |
+| 🔔 Notifications | Group invites, reminders, join requests |
+
+---
+
+# 📸 Project Screenshots
+
+## ✏️ Low-Fidelity Wireframes
+
+| Login | Dashboard |
+|-------|-----------|
+| ![](Low%20Fidelity%20Wireframes/Login%20Low%20Fidelity.png) | ![](Low%20Fidelity%20Wireframes/Dashboard%20LF.png) |
+
+| Study Groups | Planner |
+|--------------|----------|
+| ![](Low%20Fidelity%20Wireframes/Study%20Groups%20LF.png) | ![](Low%20Fidelity%20Wireframes/Planner.png) |
+
+---
+
+## 🎨 High-Fidelity Prototype
+
+| Login | Dashboard |
+|-------|-----------|
+| ![](High%20Fidelity%20Prototypes/Login%20Page.png) | ![](High%20Fidelity%20Prototypes/Dashboard.png) |
+
+| Study Groups | Subjects |
+|--------------|----------|
+| ![](High%20Fidelity%20Prototypes/Study%20Groups.png) | ![](High%20Fidelity%20Prototypes/Subjects%20Page.png) |
+
+| Planner | Progress Tracking |
+|----------|-------------------|
+| ![](High%20Fidelity%20Prototypes/Planner.png) | ![](High%20Fidelity%20Prototypes/Progress.png) |
+
+---
+
+## 🎯 Design Evolution
+
+The project followed a **User-Centered Design (UCD)** methodology.
+
+The interface was first designed using **low-fidelity wireframes** to validate navigation, layout, and usability. Based on usability analysis and HCI principles, these wireframes evolved into **high-fidelity interactive prototypes** with improved accessibility, visual hierarchy, and consistency.
+
+Design Principles Applied:
+
+- Nielsen's 10 Usability Heuristics
+- Shneiderman's 8 Golden Rules
+- WCAG AA Accessibility
+- User-Centered Design
+- Responsive Design
+- Minimalist Interface
+
+---
+
+# 📁 Repository Structure
 
 ```
 StudyBuddy/
-├── README.md                  ← you are here
-├── docs/                      ← full HCI documentation & report (deliverables)
-│   ├── 01-project-overview.md       Introduction, problem, objectives, scope
-│   ├── 02-user-analysis-personas.md User analysis + 3 detailed personas
-│   ├── 03-use-cases.md              12+ formal use-case descriptions
-│   ├── 04-use-case-diagram.md       PlantUML use-case diagram
-│   ├── 05-system-architecture.md    3-tier architecture + PlantUML diagrams
-│   ├── 06-database-design.md        ER diagram (Mermaid + PlantUML) + full SQL schema
-│   ├── 07-wireframes.md             Low-fidelity wireframes for all key screens
-│   ├── 08-ui-design.md              Color palette, typography, design system
-│   ├── 09-hci-principles.md         ★ Nielsen + Shneiderman + accessibility + UX
-│   ├── 10-testing.md                Usability test plan, scenarios, SUS, checklist
-│   └── 11-project-report.md         ★ Full 30–40 page university report
-├── backend/                   ← Flask REST API
-│   ├── app.py  config.py  extensions.py  models.py  seed.py
-│   ├── requirements.txt  README.md
-│   └── routes/  (auth, subjects, groups, syllabus, progress, tasks,
-│                 notifications, dashboard, discussion)
-└── frontend/                  ← React + Vite + Tailwind SPA
-    ├── package.json  vite.config.js  tailwind.config.js  index.html
-    ├── README.md
-    └── src/  (api, context, hooks, components ×16, pages ×14)
+│
+├── README.md
+│
+├── docs/
+│   ├── 01-project-overview.md
+│   ├── 02-user-analysis-personas.md
+│   ├── 03-use-cases.md
+│   ├── 04-use-case-diagram.md
+│   ├── 05-system-architecture.md
+│   ├── 06-database-design.md
+│   ├── 07-wireframes.md
+│   ├── 08-ui-design.md
+│   ├── 09-hci-principles.md
+│   ├── 10-testing.md
+│   ├── 11-project-report.md
+│   ├── 12-heuristic-evaluation.md
+│   └── 13-statistical-analysis.md
+│
+├── backend/
+│   ├── routes/
+│   ├── app.py
+│   ├── config.py
+│   ├── models.py
+│   ├── requirements.txt
+│   └── studybuddy.db
+│
+├── frontend/
+│   ├── src/
+│   ├── package.json
+│   ├── vite.config.js
+│   └── tailwind.config.js
+│
+├── High Fidelity Prototypes/
+│
+└── Low Fidelity Wireframes/
 ```
 
 ---
 
-## 🚀 Quick Start (Windows / PowerShell)
+# 🛠 Tech Stack
 
-You need **two terminals** — one for the backend, one for the frontend.
+### Frontend
 
-### 1. Backend — Flask API (port 5000)
+- React
+- Vite
+- Tailwind CSS
+- React Router
 
-```powershell
-cd "E:\HCI project\backend"
+### Backend
+
+- Python
+- Flask
+- SQLAlchemy
+- Flask-JWT-Extended
+
+### Database
+
+- SQLite
+
+### Development Tools
+
+- Git
+- GitHub
+- Figma
+- PlantUML
+- Mermaid
+
+---
+
+# 🚀 Quick Start
+
+## Backend
+
+```bash
+cd backend
+
 python -m venv venv
-.\venv\Scripts\Activate.ps1
+
+venv\Scripts\activate
+
 pip install -r requirements.txt
+
 python app.py
 ```
 
-On first run this auto-creates and **seeds** `studybuddy.db` with demo data, then serves the API at **http://localhost:5000**.
+Backend runs at
 
-**Demo logins** (password for all: `password123`):
-`alice@university.edu` · `bob@university.edu` · `carol@university.edu`
+```
+http://localhost:5000
+```
 
-Health check: open http://localhost:5000/api/health
+Demo Password
 
-### 2. Frontend — React app (port 5173)
+```
+password123
+```
 
-```powershell
-cd "E:\HCI project\frontend"
+Demo Users
+
+- alice@university.edu
+- bob@university.edu
+- carol@university.edu
+
+---
+
+## Frontend
+
+```bash
+cd frontend
+
 npm install
+
 npm run dev
 ```
 
-Open **http://localhost:5173**. The Vite dev server proxies `/api` → the Flask backend on port 5000, so no CORS setup is needed in development.
+Open
+
+```
+http://localhost:5173
+```
 
 ---
 
-## 🧠 HCI Principles Applied
+# 🧠 HCI Principles Applied
 
-This project is built as an HCI deliverable. Every major principle is implemented and documented (see **[docs/09-hci-principles.md](docs/09-hci-principles.md)** for the full traceability matrix):
+The interface was designed following established Human-Computer Interaction principles.
 
-- **Nielsen's 10 Usability Heuristics** — visibility of system status (toasts, loading/progress states), match with real world (weekly syllabus, "study streak"), user control & freedom (leave group, undo via confirm dialogs), consistency & standards (shared design system), error prevention (validation, confirm dialogs), recognition over recall (recommended groups, prefilled forms), flexibility (keyboard nav, weekly/monthly toggle), aesthetic & minimalist design, error recovery (clear inline + toast errors), help & documentation.
-- **Shneiderman's 8 Golden Rules** — consistency, shortcuts, informative feedback, dialog closure, simple error handling, easy reversal, internal locus of control, reduced memory load.
-- **Accessibility** — semantic HTML, ARIA labels/roles, visible focus rings, full keyboard navigation, skip link, color-blind-friendly UI (icon + text, never color alone), WCAG AA contrast.
-- **UX** — user-centered design, simple navigation, clear feedback, minimal cognitive load, visual hierarchy, progressive disclosure.
+### Nielsen's Usability Heuristics
 
----
+- Visibility of system status
+- Match between system and real world
+- User control and freedom
+- Consistency and standards
+- Error prevention
+- Recognition rather than recall
+- Flexibility and efficiency
+- Aesthetic and minimalist design
+- Error recovery
+- Help and documentation
 
-## 📊 Database
+### Shneiderman's Golden Rules
 
-11 tables: **Users, Subjects, StudyGroups, GroupMembers, GroupJoinRequests, Syllabus, Topics, Progress, Tasks, Notifications, DiscussionPosts**. Full ER diagram and runnable `CREATE TABLE` SQL are in **[docs/06-database-design.md](docs/06-database-design.md)**. The Flask backend builds the same schema automatically via SQLAlchemy.
+- Consistency
+- Shortcuts
+- Informative feedback
+- Dialog closure
+- Error handling
+- Easy reversal
+- Internal locus of control
+- Reduced memory load
 
----
+### Accessibility
 
-## 📦 Deliverables Checklist
-
-| Deliverable | Location |
-|-------------|----------|
-| Project Overview | [docs/01-project-overview.md](docs/01-project-overview.md) |
-| User Analysis + Personas | [docs/02-user-analysis-personas.md](docs/02-user-analysis-personas.md) |
-| Use Cases | [docs/03-use-cases.md](docs/03-use-cases.md) |
-| Use Case Diagram (PlantUML) | [docs/04-use-case-diagram.md](docs/04-use-case-diagram.md) |
-| System Architecture | [docs/05-system-architecture.md](docs/05-system-architecture.md) |
-| Database Design (ER + SQL) | [docs/06-database-design.md](docs/06-database-design.md) |
-| Wireframes | [docs/07-wireframes.md](docs/07-wireframes.md) |
-| UI Design System | [docs/08-ui-design.md](docs/08-ui-design.md) |
-| HCI Principles | [docs/09-hci-principles.md](docs/09-hci-principles.md) |
-| Testing & Evaluation | [docs/10-testing.md](docs/10-testing.md) |
-| Full Project Report (30–40 pp) | [docs/11-project-report.md](docs/11-project-report.md) |
-| Heuristic Evaluation Report (applied) | [docs/12-heuristic-evaluation.md](docs/12-heuristic-evaluation.md) |
-| Statistical Analysis of Usability Data | [docs/13-statistical-analysis.md](docs/13-statistical-analysis.md) |
-| React Frontend | [frontend/](frontend/) |
-| Flask Backend | [backend/](backend/) |
-
----
-
-## 🛠️ Tech Notes
-
-- **Auth:** JWT (Flask-JWT-Extended). The frontend stores the token in `localStorage` and attaches it as a `Bearer` header via an axios interceptor; a 401 redirects to login.
-- **Rendering diagrams:** PlantUML blocks render at [plantuml.com/plantuml](https://www.plantuml.com/plantuml) or the VS Code *PlantUML* extension; Mermaid blocks render on GitHub or with the *Markdown Preview Mermaid* extension.
-- **Point the frontend at another backend:** edit `frontend/src/api/client.js` (baseURL) or `frontend/vite.config.js` (dev proxy target).
+- WCAG AA contrast
+- Keyboard navigation
+- ARIA labels
+- Semantic HTML
+- Focus indicators
+- Screen-reader support
 
 ---
 
-*Built as a university Human-Computer Interaction semester project.*
+# 📊 Database
+
+The application consists of **11 relational tables**.
+
+- Users
+- Subjects
+- StudyGroups
+- GroupMembers
+- GroupJoinRequests
+- Syllabus
+- Topics
+- Progress
+- Tasks
+- Notifications
+- DiscussionPosts
+
+The schema is implemented using SQLAlchemy and automatically created during initialization.
+
+---
+
+# 📦 Deliverables
+
+✅ Project Overview
+
+✅ User Analysis & Personas
+
+✅ Use Cases
+
+✅ Use Case Diagram
+
+✅ System Architecture
+
+✅ Database Design
+
+✅ Wireframes
+
+✅ UI Design
+
+✅ HCI Principles
+
+✅ Testing & Evaluation
+
+✅ Heuristic Evaluation
+
+✅ Statistical Analysis
+
+✅ Full Project Report
+
+---
+
+# 🚀 Future Improvements
+
+- AI-powered study partner recommendations
+- Real-time group chat
+- Video meeting integration
+- Calendar synchronization
+- Email notifications
+- Mobile application
+- Analytics dashboard
+- AI study assistant
+
+---
+Built as a university Human-Computer Interaction semester project.
+
+---
+
+⭐ If you found this project useful, consider giving it a star.
+
+
