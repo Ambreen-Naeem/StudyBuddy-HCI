@@ -1,5 +1,13 @@
 # StudyBuddy 📚
 
+![React](https://img.shields.io/badge/React-Frontend-61DAFB?logo=react)
+![Vite](https://img.shields.io/badge/Vite-Build-646CFF?logo=vite)
+![Flask](https://img.shields.io/badge/Flask-Backend-000000?logo=flask)
+![SQLite](https://img.shields.io/badge/SQLite-Database-003B57?logo=sqlite)
+![HCI](https://img.shields.io/badge/HCI-Project-success)
+![License](https://img.shields.io/badge/License-Academic-blue)
+
+
 A full-stack **Human-Computer Interaction (HCI)** semester project: a web application that helps university students find study partners, create and manage study groups, break syllabi into weekly topics, track academic progress, and plan their study tasks — designed around Nielsen's heuristics, Shneiderman's golden rules, accessibility (WCAG AA), and user-centered UX principles.
 
 > **Stack:** React + Vite + Tailwind CSS + React Router (frontend) · Python Flask + SQLAlchemy + JWT (backend) · SQLite (database)
